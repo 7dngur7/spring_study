@@ -1,30 +1,17 @@
-package hello.core.member;
+package hello.core.Member;
 
 public class Member {
-    private Long id;
+    private long id;
     private String name;
     private Grade grade;
 
-    public Member(Long id, String name, Grade grade){
-        this.id=id;
-         this.name=name;
+    public Member(long id, String name, Grade grade) {
+        this.id = id;
+        this.name = name;
         this.grade = grade;
     }
 
-    public Long getId() {
-        return id;
-    }
-    public String getName() {
-        return name;
-    }
-
-    public Grade getGrade() {
-        return grade;
-    }
-
-
-
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -35,4 +22,17 @@ public class Member {
     public void setGrade(Grade grade) {
         this.grade = grade;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Grade getGrade() {
+        return grade;
+    }
+
 }

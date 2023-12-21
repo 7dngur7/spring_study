@@ -1,7 +1,10 @@
-package hello.core.member;
+package hello.core.Member;
 
 public interface MemberRepository {
-    void save(Member member);
 
-    Member findById(Long memberId);
+
+    void saveMember(Member member);
+
+    Member getMember(Long memberId);
+
 }

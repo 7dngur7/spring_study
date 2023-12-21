@@ -1,7 +1,5 @@
-package hello.core.member;
+package hello.core.Member;
 
 public enum Grade {
-    VIP,
-    BASIC
-
+    num1, num2, num3
 }

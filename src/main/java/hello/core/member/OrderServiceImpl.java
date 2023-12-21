@@ -1,8 +1,15 @@
 package hello.core.Member;
 
 public class OrderServiceImpl implements OrderService{
-    MemberRepository memberRepository = new MemberRepositoryImpl();
-    DiscountPolicy discountPolicy = new DiscountPolicyImpl();
+    MemberRepository memberRepository;
+
+//    DiscountPolicy discountPolicy = new DiscountPolicyImpl();
+    DiscountPolicy discountPolicy;
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {

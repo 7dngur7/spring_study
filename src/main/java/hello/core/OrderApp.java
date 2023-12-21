@@ -1,12 +1,16 @@
 package hello.core;
 
 import hello.core.Member.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class OrderApp {
 
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        MemberService memberService = applicationContext.getBean("MemberService",MemberService.class);
+        OrderService orderService = applicationContext.getBean("OrderService",OrderService.class);
 
         memberService.join(new Member(1L, "member1", Grade.num1));
         Order order = orderService.createOrder(1L, "item1", 10000);

@@ -1,7 +1,7 @@
 package hello.core;
 
-import hello.core.Member.DiscountPolicy;
-import hello.core.Member.DiscountPolicyRateImpl;
+import hello.core.Discoount.DiscountPolicy;
+import hello.core.Discoount.DiscountPolicyRateImpl;
 import hello.core.Member.Grade;
 import hello.core.Member.Member;
 import org.junit.jupiter.api.DisplayName;

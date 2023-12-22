@@ -1,6 +1,8 @@
 package hello.core;
 
 import hello.core.Member.*;
+import hello.core.Order.Order;
+import hello.core.Order.OrderService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

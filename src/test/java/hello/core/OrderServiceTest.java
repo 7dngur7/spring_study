@@ -1,6 +1,8 @@
 package hello.core;
 
 import hello.core.Member.*;
+import hello.core.Order.Order;
+import hello.core.Order.OrderService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

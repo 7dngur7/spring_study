@@ -1,6 +1,10 @@
 package hello.core;
 
+import hello.core.Discoount.DiscountPolicy;
+import hello.core.Discoount.DiscountPolicyRateImpl;
 import hello.core.Member.*;
+import hello.core.Order.OrderService;
+import hello.core.Order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

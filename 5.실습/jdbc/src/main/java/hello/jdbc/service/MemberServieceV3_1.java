@@ -1,0 +1,53 @@
+package hello.jdbc.service;
+
+import hello.jdbc.domain.Member;
+import hello.jdbc.repository.MemberRepositoryV1;
+import hello.jdbc.repository.MemberRepositoryV3;
+import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionManager;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
+
+@RequiredArgsConstructor
+public class MemberServieceV3_1 {
+
+    private final PlatformTransactionManager transactionManager;
+    private final MemberRepositoryV3 memberRepository;
+
+    public void accountTransfer(String fromId, String toId, int money){
+
+        TransactionStatus transaction = transactionManager.getTransaction(new DefaultTransactionDefinition());
+
+        try{
+            bizLogic(fromId, toId, money);
+            transactionManager.commit(transaction);
+        }
+        catch(Exception e){
+            transactionManager.rollback(transaction);
+            throw new IllegalStateException("bizLogic 오류");
+        }
+
+
+
+    }
+
+    private void bizLogic(String fromId, String toId, int money) {
+        Member fromMember = memberRepository.findById(fromId);
+        Member toMember = memberRepository.findById(toId);
+
+        memberRepository.updateById(fromId, fromMember.getMoney()- money);
+
+        validate(toMember);
+
+        memberRepository.updateById(toId,toMember.getMoney()+ money);
+    }
+
+    private static void validate(Member toMember) {
+        if(toMember.getMemberId().equals("ex")){
+            throw new IllegalStateException("오류 사용자!");
+        }
+    }
+
+
+}
